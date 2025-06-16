@@ -27,7 +27,7 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        "https://aicodereviewer-server.onrender.com//api/auth/signup",
         formData
       );
       // const token = res.data.token;
