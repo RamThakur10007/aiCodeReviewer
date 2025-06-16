@@ -56,21 +56,21 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-900 text-white p-6 gap-6">
-      <header className="w-full text-center py-4 text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg rounded-lg">
+    <div className="flex flex-col items-center min-h-screen bg-gray-900 text-white p-4 sm:p-6 gap-6">
+      <header className="w-full text-center py-4 text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg rounded-lg">
         AI Code Reviewer 🤖
       </header>
-      <div className="flex flex-row gap-6 w-full max-w-6xl">
+      <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl">
         {/* Code Editor Section */}
-        <div className="w-1/2 h-full bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 overflow-auto">
+        <div className="w-full lg:w-1/2 h-full bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg border border-gray-700 overflow-auto">
           <input
             type="file"
             accept=".js, .py, .css, .cpp, .cs, .ts, .html, .json, .java"
             onChange={handleFileUpload}
-            className="mb-4 text-sm text-gray-400 cursor-pointer bg-gray-700 p-2 rounded-lg"
+            className="mb-4 text-sm text-gray-400 cursor-pointer bg-gray-700 p-2 rounded-lg w-full"
           />
 
-          <div className="border border-gray-600 rounded-lg p-4 bg-gray-900">
+          <div className="border border-gray-600 rounded-lg p-2 sm:p-4 bg-gray-900">
             <Editor
               value={code}
               onValueChange={(code) => setCode(code)}
@@ -78,14 +78,14 @@ function App() {
                 prism.highlight(code, prism.languages.javascript, "javascript")
               }
               padding={10}
-              style={{ fontFamily: "Fira Code, monospace", fontSize: 16 }}
+              style={{ fontFamily: "Fira Code, monospace", fontSize: 14 }}
             />
           </div>
 
           <button
             onClick={reviewCode}
             disabled={loading}
-            className={`w-full mt-4 py-3 text-lg font-semibold text-white rounded-lg shadow-lg transform transition duration-300 flex justify-center items-center gap-2 ${
+            className={`w-full mt-4 py-3 text-base sm:text-lg font-semibold text-white rounded-lg shadow-lg transform transition duration-300 flex justify-center items-center gap-2 ${
               loading
                 ? "bg-gray-600 cursor-not-allowed"
                 : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-500 hover:to-blue-600 hover:scale-105 hover:shadow-xl"
@@ -99,7 +99,7 @@ function App() {
         </div>
 
         {/* Review Section */}
-        <div className="w-1/2 h-full bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 overflow-auto">
+        <div className="w-full lg:w-1/2 h-full bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg border border-gray-700 overflow-auto">
           <div className="text-gray-300">
             {loading ? (
               <div className="flex flex-col items-center gap-2">
