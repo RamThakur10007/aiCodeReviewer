@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://aicodereviewer-server.onrender.com//api/auth/login",
+        "https://aicodereviewer-server.onrender.com/api/auth/login",
         {
           email,
           password,
